@@ -24,7 +24,6 @@ conn azure
     rightsubnet=$routes
     leftsourceip=%config
     esp=aes256gcm16,aes128gcm16!
-    
     auto=add
 EOF
 
