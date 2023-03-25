@@ -1,4 +1,4 @@
-installDir="/etc/1"
+installDir="/etc/"
 rootCertName="P2SRootCertLinux"
 username="client"
 password="12345678"
