@@ -1,4 +1,4 @@
-# Conexión Point-To-Site a un File Share de un Storage Account de Azure desde Ubuntu Linux usando una VPN.
+# Conexión Point-To-Site a un **File Share** de un **Storage Account** de Azure desde Ubuntu Linux usando una VPN.
 ## Notas
 Este prueba de concepto se basa en lo descrito en https://learn.microsoft.com/en-us/azure/storage/files/storage-files-configure-p2s-vpn-linux
 
