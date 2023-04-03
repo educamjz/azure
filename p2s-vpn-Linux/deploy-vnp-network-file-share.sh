@@ -8,7 +8,7 @@ publicIpAddressName="$vpnName-PublicIP"
 rootCertName="P2SRootCertLinux"
 username="client"
 password="12345678"
-rootCertificate="./rootCert.pem"
+rootCertificate="rootCert.pem"
 mystorageaccount="saecj00"
 myfileshare="data-ecj"
 mystorageaccount="saecj00"
@@ -171,6 +171,8 @@ ipsec restart
 ipsec up azure
 echo " --------------------------------"
 echo ""
+
+my_public_IP=$(dig +short myip.opendns.com @resolver1.opendns.com)
 
 echo "Creating Storasge Account"
 az storage account create -n $mystorageaccount -g $resourceGroupName -l $region --sku Standard_GRS --default-action Deny
