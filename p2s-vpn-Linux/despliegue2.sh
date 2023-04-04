@@ -32,7 +32,7 @@ sudo ipsec pki --pub --in "clientKey.pem" | \
 
 openssl pkcs12 -in "clientCert.pem" -inkey "clientKey.pem" -certfile rootCert.pem -export -out "$username.p12" -password "pass:$password"
 
-Wait ...
+echo "Wait ..."
 sleep 30
 echo " --------------------------------"
 
