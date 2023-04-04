@@ -7,7 +7,7 @@ Hay que instalar previamente en la máquina Ubuntu Linux los siguientes paquetes
 ```
 sudo apt update
 curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
-sudo apt install strongswan strongswan-pki libstrongswan-extra-plugins curl libxml2-utils libtss2-tcti-tabrmd0 strongswan-swanctl libcharon-extra-plugins cifs-utils unzip jq
+sudo apt install - y strongswan strongswan-pki libstrongswan-extra-plugins curl libxml2-utils libtss2-tcti-tabrmd0 strongswan-swanctl libcharon-extra-plugins cifs-utils unzip jq
 ```
 
 ## Procedimiento
