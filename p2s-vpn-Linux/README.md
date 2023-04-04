@@ -9,6 +9,7 @@ sudo apt update
 curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 sudo apt install -y strongswan strongswan-pki libstrongswan-extra-plugins curl libxml2-utils libtss2-tcti-tabrmd0 strongswan-swanctl libcharon-extra-plugins cifs-utils unzip jq
 ```
+Como se puede apreciar en el script ***"deploy-vnp-network-file-share.sh"***, usamos ***StrongSwan*** como VPN en Linux, y hacemos que el **File Share** solo sea accesible desde la IP pública que tenga nuestra máquina Linux.
 
 ## Procedimiento
 Ajustar la variables del script ***"deploy-vnp-network-file-share.sh"*** y ejecutarlo. Al final debe quedar montado el "file share" usando la conexión VPN definida.
