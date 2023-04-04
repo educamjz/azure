@@ -49,7 +49,7 @@ gatewaySubnet=$(az network vnet subnet create \
     --resource-group $resourceGroupName \
     --vnet-name $virtualNetworkName \
     --name "GatewaySubnet" \
-    --address-prefixes "192.168.2.0/24" \
+    --address-prefixes "10.10.2.0/24" \
     --query "id" | tr -d '"')
 echo " --------------------------------"
 echo ""
