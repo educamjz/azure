@@ -33,8 +33,8 @@ openssl pkcs12 -in "clientCert.pem" -inkey "clientKey.pem" -certfile rootCert.pe
 echo "--------------------------------"
 echo ""
 
-# Login to the Azure account
-echo "Logging into Azure"
+# Login to Azure account
+echo "Login to Azure"
 az login --use-device-code
 echo "--------------------------------"
 echo ""
