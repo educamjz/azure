@@ -14,14 +14,12 @@ myPrivateEndPoint="pep-ecj"
 
 # Create CA
 echo "Creating CA"
-sudo ipsec pki --gen --outform pem > rootKey.pem
-sudo ipsec pki --self --in rootKey.pem --dn "CN=$rootCertName" --ca --outform pem > rootCert.pem
+ipsec pki --gen --outform pem > rootKey.pem
+ipsec pki --self --in rootKey.pem --dn "CN=$rootCertName" --ca --outform pem > rootCert.pem
 
-rootCertificate=$(openssl x509 -in rootCert.pem -outform der | base64 -w0 ; echo)
-
-sudo ipsec pki --gen --size 4096 --outform pem > "clientKey.pem"
-sudo ipsec pki --pub --in "clientKey.pem" | \
-    sudo ipsec pki \
+ipsec pki --gen --size 4096 --outform pem > "clientKey.pem"
+ipsec pki --pub --in "clientKey.pem" | \
+    ipsec pki \
         --issue \
         --cacert rootCert.pem \
         --cakey rootKey.pem \
@@ -137,11 +135,11 @@ vpnServer=$(xmllint --xpath "string(/VpnProfile/VpnServer)" Generic/VpnSettings.
 vpnType=$(xmllint --xpath "string(/VpnProfile/VpnType)" Generic/VpnSettings.xml | tr '[:upper:]' '[:lower:]')
 routes=$(xmllint --xpath "string(/VpnProfile/Routes)" Generic/VpnSettings.xml)
 
-sudo cp "${installDir}ipsec.conf" "${installDir}ipsec.conf.backup"
-sudo cp "Generic/VpnServerRoot.cer_0" "${installDir}ipsec.d/cacerts"
-sudo cp "${username}.p12" "${installDir}ipsec.d/private" 
+cp "${installDir}ipsec.conf" "${installDir}ipsec.conf.backup"
+cp "Generic/VpnServerRoot.cer_0" "${installDir}ipsec.d/cacerts"
+cp "${username}.p12" "${installDir}ipsec.d/private" 
 
-sudo tee -a "${installDir}ipsec.conf" <<EOF
+tee -a "${installDir}ipsec.conf" <<EOF
 conn azure
     keyexchange=$vpnType
     type=tunnel
@@ -157,7 +155,7 @@ conn azure
     auto=add
 EOF
 
-echo ": P12 $username.p12 '$password'" | sudo tee -a "${installDir}ipsec.secrets" > /dev/null
+echo ": P12 $username.p12 '$password'" | tee -a "${installDir}ipsec.secrets" > /dev/null
 
 echo "Connecting VPN"
 # Restar VPN
