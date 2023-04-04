@@ -135,6 +135,15 @@ EOF
 
 echo ": P12 $username.p12 '$password'" | sudo tee -a "${installDir}ipsec.secrets" > /dev/null
 
+echo "Connecting VPN"
+# Restar VPN
+ipsec restart
+
+# Up tunel "azure"
+ipsec up azure
+echo " --------------------------------"
+echo ""
+
 my_public_IP=$(dig +short myip.opendns.com @resolver1.opendns.com)
 
 echo "Creating Storage Account"
