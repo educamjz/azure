@@ -139,6 +139,9 @@ echo "Connecting VPN"
 # Restar VPN
 ipsec restart
 
+echo "Wait ..."
+sleep 30
+
 # Up tunel "azure"
 ipsec up azure
 echo " --------------------------------"
