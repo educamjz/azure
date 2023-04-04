@@ -29,13 +29,14 @@ ipsec pki --pub --in "clientKey.pem" | \
         --outform pem > "clientCert.pem"
 
 openssl pkcs12 -in "clientCert.pem" -inkey "clientKey.pem" -certfile rootCert.pem -export -out "$username.p12" -password "pass:$password"
-
-echo "Wait ..."
-sleep 30
 echo " --------------------------------"
+echo ""
 
 # Login to the Azure account
+echo "Logging into Azure"
 az login --use-device-code
+echo " --------------------------------"
+echo ""
 
 echo "Creating ResourceGroup"
 az group create -l $region -n $resourceGroupName
