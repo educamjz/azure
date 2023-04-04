@@ -29,18 +29,18 @@ ipsec pki --pub --in "clientKey.pem" | \
         --outform pem > "clientCert.pem"
 
 openssl pkcs12 -in "clientCert.pem" -inkey "clientKey.pem" -certfile rootCert.pem -export -out "$username.p12" -password "pass:$password"
-echo " --------------------------------"
+echo "--------------------------------"
 echo ""
 
 # Login to the Azure account
 echo "Logging into Azure"
 az login --use-device-code
-echo " --------------------------------"
+echo "--------------------------------"
 echo ""
 
 echo "Creating ResourceGroup"
 az group create -l $region -n $resourceGroupName
-echo " --------------------------------"
+echo "--------------------------------"
 echo ""
 
 echo "Creating VirtualNetwork"
@@ -50,7 +50,7 @@ virtualNetwork=$(az network vnet create \
     --location $region \
     --address-prefixes "10.10.0.0/16" \
     --query "newVNet.id" | tr -d '"')
-echo " --------------------------------"
+echo "--------------------------------"
 echo ""
 
 echo "Creating ServiceEndpointSubnet"
@@ -61,7 +61,7 @@ serviceEndpointSubnet=$(az network vnet subnet create \
     --address-prefixes "10.10.0.0/24" \
     --service-endpoints "Microsoft.Storage" \
     --query "id" | tr -d '"')
-echo " --------------------------------"
+echo "--------------------------------"
 echo ""
 
 echo "Creating privateEndpointSubnet"
@@ -71,7 +71,7 @@ privateEndpointSubnet=$(az network vnet subnet create \
     --name "PrivateEndpointSubnet" \
     --address-prefixes "10.10.1.0/24" \
     --query "id" | tr -d '"')
-echo " --------------------------------"
+echo "--------------------------------"
 echo ""
 
 echo "Creating gatewaySubnet"
@@ -81,7 +81,7 @@ gatewaySubnet=$(az network vnet subnet create \
     --name "GatewaySubnet" \
     --address-prefixes "10.10.2.0/24" \
     --query "id" | tr -d '"')
-echo " --------------------------------"
+echo "--------------------------------"
 echo ""
 
 echo "Deploying Virtual Network Gateway"
@@ -94,7 +94,7 @@ publicIpAddress=$(az network public-ip create \
     --sku "Basic" \
     --allocation-method "Dynamic" \
     --query "publicIp.id" | tr -d '"')
-echo " --------------------------------"
+echo "--------------------------------"
 echo ""
 
 echo "Step 2"
@@ -109,7 +109,7 @@ az network vnet-gateway create \
     --vpn-type "RouteBased" \
     --address-prefixes "172.16.201.0/24" \
     --client-protocol "IkeV2" > /dev/null
-echo " --------------------------------"
+echo "--------------------------------"
 echo ""
 
 echo "Step 3"
@@ -119,7 +119,7 @@ az network vnet-gateway root-cert create \
     --name $rootCertName \
     --public-cert-data $rootCertificate \
     --output none
-echo " --------------------------------"
+echo "--------------------------------"
 echo ""
 
 echo "Downloading VPN Client"
@@ -167,30 +167,30 @@ sleep 30
 
 # Up tunel "azure"
 ipsec up azure
-echo " --------------------------------"
+echo "--------------------------------"
 echo ""
 
 my_public_IP=$(dig +short myip.opendns.com @resolver1.opendns.com)
 
 echo "Creating Storage Account"
 az storage account create -n $mystorageaccount -g $resourceGroupName -l $region --sku Standard_GRS --default-action Deny
-echo " --------------------------------"
+echo "--------------------------------"
 echo ""
 
 echo "Allowing access from my public IP to storager account"
 az storage account network-rule add --resource-group $resourceGroupName --account-name $mystorageaccount --ip-address $my_public_IP
-echo " --------------------------------"
+echo "--------------------------------"
 echo ""
 
 echo "Wait ..."
 sleep 30
-echo " --------------------------------"
+echo "--------------------------------"
 echo ""
 
 echo "Creating File Shared Storage Account"
 storage_conn_string=$(az storage account show-connection-string -n $mystorageaccount -g $resourceGroupName --query 'connectionString' -o tsv)
 az storage share create --name $myfileshare --connection-string $storage_conn_string
-echo " --------------------------------"
+echo "--------------------------------"
 echo ""
 
 echo "Creating ResourceGroup"
@@ -204,7 +204,7 @@ az network private-endpoint create \
     --private-connection-resource-id $storage_id \
     --group-id file \
     --connection-name "pep-ecj-nic"
-echo " --------------------------------"
+echo "--------------------------------"
 echo ""
 
 echo "Mounting File Share"
@@ -229,5 +229,5 @@ PEP_IP_Address=$(az network private-endpoint show --resource-group $resourceGrou
 
 echo "//$PEP_IP_Address/$myfileshare /mnt/$myfileshare cifs nofail,credentials=/etc/smbcredentials/$mystorageaccount.cred,dir_mode=0777,file_mode=0777,serverino,nosharesock,actimeo=30" >> /etc/fstab
 mount -t cifs //$PEP_IP_Address/$myfileshare /mnt/$myfileshare -o credentials=/etc/smbcredentials/$mystorageaccount.cred,dir_mode=0777,file_mode=0777,serverino,nosharesock,actimeo=30
-echo " --------------------------------"
+echo "--------------------------------"
 echo "END"
