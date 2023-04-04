@@ -11,4 +11,4 @@ sudo apt install -y strongswan strongswan-pki libstrongswan-extra-plugins curl l
 ```
 
 ## Procedimiento
-Ajustar la variables del script --"deploy-vnp-network-file-share.sh"-- y ejecutarlo. Al final debe quedar montado el "file share" usando la conexión VPN definida.
+Ajustar la variables del script **"deploy-vnp-network-file-share.sh"** y ejecutarlo. Al final debe quedar montado el "file share" usando la conexión VPN definida.
