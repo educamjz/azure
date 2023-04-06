@@ -2,7 +2,7 @@
 green='\033[32m'
 resetcolor='\033[0m'
 
-# Declaración de la estructura de datos
+# Declare data structure using multidimensional arrays
 numRGS=2
 declare -A RGS=(
   [0,rgName]="RGCloud"
