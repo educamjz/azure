@@ -6,4 +6,4 @@ El segundo grupo de recursos en la región **"Central US"**, llamado **"RGOnPrem
 
 Recordemos que la región **"East US 2"** tiene como par a la región **"Central US"**.
 
-El script v0 es una verisón secuencial de la creación de los recursos mientras que el script v1 es una verisón optimizada donde se define en unos arrays multidimensionales la estructura que se quiere crear para luego crearla usando unos bucles "for".
+El script v0 es una versión secuencial de la creación de los recursos mientras que el script v1 es una versión optimizada donde se define en unos arrays multidimensionales la estructura que se quiere crear para luego crearla usando bucles "for".
