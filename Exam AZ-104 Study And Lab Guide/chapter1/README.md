@@ -5,3 +5,5 @@ Este script genera dos grupos de recursos en la región **"East US 2"**, en el p
 El segundo grupo de recursos en la región **"Central US"**, llamado **"RGOnPrem"**, creamos una red virtual (**"VNetOnPrem"**) con el ámbito ***192.168.0.0/16***, que contiene una subred (**"OnPrem-Subnet"**) con el ámbito ***192.168.1.0/24***.
 
 Recordemos que la región **"East US 2"** tiene como par a la región **"Central US"**.
+
+El script v0 es una verisón secuencial de la creación de los recursos mientras que el script v1 es una verisón optimizada donde se define en unos arrays multidimensionales la estructura que se quiere crear para luego crearla usando unos bucles "for".
