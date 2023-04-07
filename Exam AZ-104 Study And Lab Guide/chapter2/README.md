@@ -9,4 +9,4 @@ Creamos también un conjunto de disponibilidad donde se asigna la segunda máqui
 
 Para ambas máquina abrimos los puertos 80 y 443.
 
-Podemos crear de nuevo toda la infrastructura que se crea en el capítulo 1 ejecutando este script ya que incluye a través del comando "source" al principio del mismo el contenido del script de ese capítulo.
+Podemos crear de nuevo toda la topología creada en el capítulo 1 ejecutando este script ya que incluye a través del comando "source" al principio del mismo el contenido del script de ese capítulo.
