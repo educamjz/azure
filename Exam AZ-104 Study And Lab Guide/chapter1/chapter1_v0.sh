@@ -1,3 +1,5 @@
+#!/bin/bash
+
 RG1="RGCloud"
 region1="eastus2"
 VNet1="VNETCloud"
