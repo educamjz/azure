@@ -1,0 +1,2 @@
+# CONTENIDO
+En este repositorio voy añadiendo scripts de **"az cli"** que voy usando y aprendiendo poco a poco y creo que pueden ser interesantes y de utilidad para otras personas que también trabajen en el despliegue de topologías ***"Azure"*** de diversa índole.
