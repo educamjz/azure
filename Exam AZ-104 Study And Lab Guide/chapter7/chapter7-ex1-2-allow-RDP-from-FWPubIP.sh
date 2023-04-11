@@ -34,5 +34,5 @@ echo "You must obtain in your browser a message like ..."
 echo -e $resetcolor
 echo "            'Action: Deny. Reason: No rule matched. Proceeding with default action.'"
 echo -e $green
-echo "Excute the script 'chapter7-ex1-allow-outbound-traffic.sh'"
+echo "Excute the script 'chapter7-ex1-3-allow-outbound-traffic.sh'"
 echo -e $resetcolor

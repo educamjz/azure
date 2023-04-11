@@ -125,5 +125,5 @@ echo ""
 echo -e $green
 echo "Now, try to connect using RDP to the public IP of 'cloud-vma3'."
 echo "You could see that you cannot connect."
-echo "Excute the script 'chapter7-ex1-allow-RDP-from-FWPubIP.sh'."
+echo "Excute the script 'chapter7-ex1-2-allow-RDP-from-FWPubIP.sh'."
 echo -e $resetcolor
