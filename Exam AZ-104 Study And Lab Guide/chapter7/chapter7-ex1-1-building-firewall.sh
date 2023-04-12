@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# Load script chapter 5
-source ../chapter5/chapter5.sh
+# Load script chapter 2
+source ../chapter2/chapter2.sh
 
 # Create Firewall Subnet
 echo -e $green
