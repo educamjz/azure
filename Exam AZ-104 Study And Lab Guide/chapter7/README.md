@@ -7,4 +7,3 @@ Empezaremos con el ejercicio 1, ejecutando el script ***"chapter7-ex1-1-building
 
 Seguiremos con el ejercicio 2, ejecutando el script ***"chapter7-ex2-1-remove-network-rule.sh"*** que eliminará, primero la **"network rule"**, segundo la ***"network rule collection"***, y por último el ***"network rule collection group"*** que creamos con el script ***"chapter7-ex1-3-allow-outbound-network-traffic.sh"*** y que nos han permitido acceder a Internet desde la máquina ***"cloud-vma3"***. A continuación ejecutaremos el script ***"chapter7-ex2-3-allow-outbound-application-traffic.sh"*** que nos creará un ***"application rule collection group"***, una ***"application rule collection"*** y por último una ***"application rule"***, permitiéndonos de nuevo todo ello acceder con el navegador desde la máquina ***"cloud-vma3"*** a https://www.google.com.
 
-**NOTA: El capítulo aún no está concluido**.
