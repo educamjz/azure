@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Colors
+green='\033[32m'
+resetcolor='\033[0m'
+
 # Declare data structure using multidimensional arrays
 numRGS=2
 declare -A RGS=(
